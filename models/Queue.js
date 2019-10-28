@@ -1,20 +1,17 @@
 const mongoose = require('mongoose');
-
 const queueDB = require('../main').queueDB;
-const { GameMode, QueueStatus, Region } = require('../util/enums');
+const { GameMode, QueueState } = require('./enums');
 
-const { QueueSchema, UserSchema, MatchSchema } = require('./schemasDefs');
-
-QueueSchema.add({
+QueueSchema = new mongoose.Schema({
     player: mongoose.Schema.Types.ObjectId,
     gamemode: {
         type: String,
         enum: GameMode,
         default: '1v1'
     },
-    status: {
+    state: {
         type: String,
-        enum: QueueStatus,
+        enum: QueueState,
         default: 'Active'
     },
     match: mongoose.Schema.Types.ObjectId,

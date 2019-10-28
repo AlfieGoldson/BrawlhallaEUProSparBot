@@ -1,16 +1,13 @@
 const mongoose = require('mongoose');
-
 const queueDB = require('../main').queueDB;
+const { PlayerState } = require('./enums');
 
-const { UserSchema, QueueSchema, MatchSchema, TeamSchema } = require('./schemasDefs');
-const { UserStatus } = require('../util/enums');
-
-PlayerSchema.add({
+PlayerSchema = new mongoose.Schema({
     name: String,
     discordID: String,
-    status: {
+    state: {
         type: String,
-        enum: UserStatus,
+        enum: PlayerState,
         default: 'Idle'
     },
     queues: [mongoose.Schema.Types.ObjectId],

@@ -1,15 +1,12 @@
+const mongoose = require('mongoose');
 const queueDB = require('../main').queueDB;
-const { GameMode, MatchStatus, Region } = require('./enums');
+const { MatchState } = require('./enums');
 
-const { MatchSchema, MatchReportSchema, TeamSchema } = require('./schemasDefs');
-
-// State: OnGoing | Reported | Confirmed
-
-MatchSchema.add({
+MatchSchema = new mongoose.Schema({
     teamA: TeamSchema,
     teamB: TeamSchema,
-    state: String,
-    gameMode: GameMode,
+    state: MatchState,
+    gameMode: String,
     scoreTeamA: Number,
     scoreTeamA: Number,
     winner: Number

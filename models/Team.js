@@ -1,10 +1,8 @@
+const mongoose = require('mongoose');
 const queueDB = require('../main').queueDB;
-
 const { TeamSchema, UserSchema } = require('./schemasDefs');
 
-console.log(User);
-
-TeamSchema.add({
+TeamSchema = new mongoose.Schema({
     players: [UserSchema]
 });
 
