@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const Player = require('../models/Player');
 const Queue = require('../models/Queue');
 
 const messages = require('../util/messages');
@@ -12,27 +12,27 @@ module.exports = (discordID, gamemode, channel) => {
 
 const beginQueue = (discordID, gamemode) => {
     return new Promise((resolve, reject) => {
-        User.findOne({ discordID })
-            .then(user => {
-                if (!user)
+        Player.findOne({ discordID })
+            .then(player => {
+                if (!player)
                     resolve('Not Registered!');
-                else if (user.status === 'InQueue') {
+                else if (player.status === 'InQueue') {
                     resolve('Already In Queue!');
                 }
-                else if (user.status === 'InMatch') {
+                else if (player.status === 'InMatch') {
                     resolve('Already In A Match!')
                 }
-                else if (user.status === 'Idle') {
+                else if (player.status === 'Idle') {
                     Queue.find({ gamemode })
                     const newQueue = new Queue({
-                        player: user,
+                        player: player,
                         gamemode
                     })
                         .save()
                         .then(queue => {
-                            user.status = 'InQueue';
-                            user.queues.push(queue);
-                            user
+                            player.status = 'InQueue';
+                            player.queues.push(queue);
+                            player
                                 .save()
                                 .then(_ => resolve('Queue Started!'))
                                 .catch(console.error);

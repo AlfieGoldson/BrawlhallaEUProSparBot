@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const Player = require('../models/Player');
 
 const messages = require('../util/messages');
 
@@ -11,12 +11,12 @@ module.exports = (discordID, name, channel) => {
 
 const register = (discordID, name) => {
     return new Promise((resolve, reject) => {
-        User.findOne({ discordID })
-            .then(user => {
-                if (user)
+        Player.findOne({ discordID })
+            .then(player => {
+                if (player)
                     resolve('Already Registered!');
                 else
-                    new User({ discordID, name })
+                    new Player({ discordID, name })
                         .save()
                         .then(_ => {
                             resolve('Registration Success!');

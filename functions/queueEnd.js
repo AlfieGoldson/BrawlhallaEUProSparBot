@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const Player = require('../models/Player');
 const Queue = require('../models/Queue');
 
 const messages = require('../util/messages');
@@ -12,18 +12,18 @@ module.exports = (discordID, channel) => {
 
 const endQueue = (discordID) => {
     return new Promise((resolve, reject) => {
-        User.findOne({ discordID })
-            .then(user => {
-                if (!user)
+        Player.findOne({ discordID })
+            .then(player => {
+                if (!player)
                     resolve(messages.queue.failure.NOT_REGISTERED);
-                else if (user.status !== 'InQueue') {
+                else if (player.status !== 'InQueue') {
                     resolve(messages.queue.failure.NOT_IN_QUEUE);
                 }
                 else {
-                    user.status = 'Idle';
-                    user.queues[0].status = 'Canceled';
+                    player.status = 'Idle';
+                    player.queues[0].status = 'Canceled';
 
-                    user.save()
+                    player.save()
                     .then(_ => resolve(messages.queue.success.QUEUE_STOP_SUCCESS))
                     .catch(console.error);
                 }
