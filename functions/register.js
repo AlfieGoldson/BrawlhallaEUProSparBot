@@ -1,7 +1,5 @@
 const Player = require('../models/Player');
 
-const messages = require('../util/messages');
-
 module.exports = (discordID, name, channel) => {
     register(discordID, name)
         .then(msg => channel.send(msg)

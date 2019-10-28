@@ -1,8 +1,6 @@
 const Player = require('../models/Player');
 const Queue = require('../models/Queue');
 
-const messages = require('../util/messages');
-
 module.exports = (discordID, gamemode, channel) => {
     beginQueue(discordID, gamemode)
         .then(msg => channel.send(msg)
