@@ -3,7 +3,7 @@ module.exports = {
         '1v1',
         '2v2'
     ],
-    UserState: [
+    PlayerState: [
         'Idle',
         'InQueue',
         'InMatch'

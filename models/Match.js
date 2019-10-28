@@ -5,7 +5,11 @@ const { MatchState } = require('./enums');
 MatchSchema = new mongoose.Schema({
     teamA: TeamSchema,
     teamB: TeamSchema,
-    state: MatchState,
+    state: {
+        type: String,
+        enum: MatchState,
+        default: 'Started'
+    },
     gameMode: String,
     scoreTeamA: Number,
     scoreTeamA: Number,

@@ -10,8 +10,8 @@ PlayerSchema = new mongoose.Schema({
         enum: PlayerState,
         default: 'Idle'
     },
-    queues: [mongoose.Schema.Types.ObjectId],
-    matches: [mongoose.Schema.Types.ObjectId],
+    queue: mongoose.Schema.Types.ObjectId,
+    match: mongoose.Schema.Types.ObjectId,
 });
 
 module.exports = queueDB.model('Player', PlayerSchema);
