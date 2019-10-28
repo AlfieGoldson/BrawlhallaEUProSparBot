@@ -11,8 +11,8 @@ module.exports = {
                         register: require('./functions/register'),
                         startQueue: require('./functions/queueStart'),
                         endQueue: require('./functions/queueEnd'),
-                        endQueue: require('./functions/matchStart'),
-                        endQueue: require('./functions/matchEnd')
+                        startMatch: require('./functions/matchStart'),
+                        endMatch: require('./functions/matchEnd')
                     });
                 }).catch(reject);
         });

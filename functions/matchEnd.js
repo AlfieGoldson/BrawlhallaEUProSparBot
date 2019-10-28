@@ -1,7 +1,5 @@
 const Player = require('../models/Player');
 const Match = require('../models/Match');
-const MatchReport = require('../models/MatchReport');
-
 
 module.exports = (discordID, scoreTeamA, scoreTeamB, channel) => {
     endMatch(discordID, scoreTeamA, scoreTeamB)
