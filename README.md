@@ -17,7 +17,7 @@ Command | Description | Aliases | Restrictions | Channels
 **`.leaderboardRS1v1`** | Fetch Rank S 1v1 Leaderboard | `.leaderboardRS1` `.leadRS1v1` `.leadRS1` | *None* | *Any*
 **`.leaderboardRS2v2`** | Fetch Rank S 2v2 Leaderboard | `.leaderboardRS2` `.leadRS2v2` `.leadRS2` | *None* | *Any*
 **`.statistics [player(mention)]`** | Specific Player Stats - *If no player is mentioned, returns stats of the player who wrote the command* | `.stats [player(mention)]` | *None* | *Any*
-**`.leavequeue`** | Leave Current Queue | `.leaveq` `.dq` | *Players in Queue* | *Channel corresponding to the ongoing queue*
+**`.leavequeue`** | Leave Current Queue | `.leaveq` `.dq` `.lq` | *Players in Queue* | *Channel corresponding to the ongoing queue*
 **`.report [score_team_A] [score_team_B]`** | Report Match | `.r [score_team_A] [score_team_B]` | *Players who played the match... duh* | *Channel corresponding to the ongoing match*
 **`.confirm`** | Confirm Match - *Confirm Match result if other team/player reported the match* | | *Other Team/Player* | *Channel corresponding to the ongoing match*
 **`.deny`** | Deny Match - *Deny Match result if other team/player wrongly reported the match* | | *Other Team/Player* | *Channel corresponding to the ongoing match*
