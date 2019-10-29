@@ -50,3 +50,7 @@ Command | Description | Aliases | Channels
 **`.promoteRS2v2 [player]`** | Promote targetted Player to Rank S 2v2 | `.promoteRS2 [player]` `.pRS2 [player]` | *Any*
 **`.demoteRS1v1 [player]`** | Demote targetted Player from Rank S 1v1 | `.demoteRS1 [player]` `.dRS1 [player]` | *Any*
 **`.demoteRS2v2 [player]`** | Demote targetted Player from Rank S 2v2 | `.demoteRS2 [player]` `.dRS2 [player]` | *Any*
+
+## Website
+
+Soon™
