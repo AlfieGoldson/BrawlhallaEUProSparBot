@@ -6,9 +6,9 @@ module.exports = {
             mongoose.createConnection(database, { useNewUrlParser: true, useUnifiedTopology: true })
                 .then((connection) => {
                     module.exports.queueDB = connection;
-                    console.log('📙  • Database Connection Sucessful!');
+                    // console.log('> Database Connection Sucessful!');
                     resolve({
-                        register: require('./functions/register'),
+                        registerPlayer: require('./functions/register'),
                         startQueue: require('./functions/queueStart'),
                         endQueue: require('./functions/queueEnd'),
                         startMatch: require('./functions/matchStart'),
