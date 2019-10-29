@@ -8,19 +8,20 @@
 
 Command | Description | Aliases | Restrictions | Channels
 --- | --- | --- | --- | ---
-**`.queue1v1`** | Queue 1v1 | `.q1v1` `.q1` `.queue1` | *None* | `#standard-1v1`
-**`.queue2v2`** | Queue 2v2 | `.q2v2` `.q2` `.queue2` | *None* | `#standard-2v2`
-**`.leaderboard1v1`** | 1v1 Leaderboard | `.leaderboard1` `.lead1v1` `.lead1` | *None* | *Any*
-**`.leaderboard2v2`** | 2v2 Leaderboard | `.leaderboard2` `.lead2v2` `.lead2` | *None* | *Any*
-**`.queueRS1v1`** | Queue Rank S 1v1 | `.qRS1v1` `.qrs1` `.queueRS1` | *Invited players **Only*** | `#rank-s-1v1`
-**`.queueRS2v2`** | Queue Rank S 2v2 | `.qRS2v2` `.qrs2` `.queueRS2` | *Invited players **Only*** | `#rank-s-2v2`
-**`.leaderboardRS1v1`** | Rank S 1v1 Leaderboard | `.leaderboardRS1` `.leadRS1v1` `.leadRS1` | *None* | *Any*
-**`.leaderboardRS2v2`** | Rank S 2v2 Leaderboard | `.leaderboardRS2` `.leadRS2v2` `.leadRS2` | *None* | *Any*
-**`.statistics [player(mention)]`** | Queue Standard 1v1 | `.stats [player(mention)]` | *None* | *Any*
+**`.queue1v1`** | Start 1v1 Queue | `.q1v1` `.q1` `.queue1` | *None* | `#standard-1v1`
+**`.queue2v2`** | Start 2v2 Queue | `.q2v2` `.q2` `.queue2` | *None* | `#standard-2v2`
+**`.leaderboard1v1`** | Fetch 1v1 Leaderboard | `.leaderboard1` `.lead1v1` `.lead1` | *None* | *Any*
+**`.leaderboard2v2`** | Fetch 2v2 Leaderboard | `.leaderboard2` `.lead2v2` `.lead2` | *None* | *Any*
+**`.queueRS1v1`** | Start Rank S 1v1 Queue | `.qRS1v1` `.qrs1` `.queueRS1` | *Invited players **Only*** | `#rank-s-1v1`
+**`.queueRS2v2`** | Start Rank S 2v2 Queue | `.qRS2v2` `.qrs2` `.queueRS2` | *Invited players **Only*** | `#rank-s-2v2`
+**`.leaderboardRS1v1`** | Fetch Rank S 1v1 Leaderboard | `.leaderboardRS1` `.leadRS1v1` `.leadRS1` | *None* | *Any*
+**`.leaderboardRS2v2`** | Fetch Rank S 2v2 Leaderboard | `.leaderboardRS2` `.leadRS2v2` `.leadRS2` | *None* | *Any*
+**`.statistics [player(mention)]`** | Specific Player Stats - *If no player is mentioned, returns stats of the player who wrote the command* | `.stats [player(mention)]` | *None* | *Any*
 **`.leavequeue`** | Leave Current Queue | `.leaveq` `.dq` | *Players in Queue* | *Channel corresponding to the ongoing queue*
 **`.report [score_team_A] [score_team_B]`** | Report Match | `.r [score_team_A] [score_team_B]` | *Players who played the match... duh* | *Channel corresponding to the ongoing match*
 **`.confirm`** | Confirm Match - *Confirm Match result if other team/player reported the match* | | *Other Team/Player* | *Channel corresponding to the ongoing match*
 **`.deny`** | Deny Match - *Deny Match result if other team/player wrongly reported the match* | | *Other Team/Player* | *Channel corresponding to the ongoing match*
+**`.match [match_id]`** | Fetch Specific Match Stats - *Players/Teams, Match State, Score...* | `.m [match_id]` | *Other Team/Player* | *Any*
 
 ### Channels
 
