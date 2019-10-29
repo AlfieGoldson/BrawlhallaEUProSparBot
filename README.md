@@ -21,7 +21,7 @@ Command | Description | Aliases | Restrictions | Channels
 **`.report [score_team_A] [score_team_B]`** | Report Match | `.r [score_team_A] [score_team_B]` | *Players who played the match... duh* | *Channel corresponding to the ongoing match*
 **`.confirm`** | Confirm Match - *Confirm Match result if other team/player reported the match* | | *Other Team/Player* | *Channel corresponding to the ongoing match*
 **`.deny`** | Deny Match - *Deny Match result if other team/player wrongly reported the match* | | *Other Team/Player* | *Channel corresponding to the ongoing match*
-**`.match [match_id]`** | Fetch Specific Match Stats - *Players/Teams, Match State, Score...* | `.m [match_id]` | *Other Team/Player* | *Any*
+**`.match [match_id]`** | Fetch Specific Match Stats (Players/Teams, Match State, Score...) - *If no match_id provided, will return the player's current match, or last match if none* | `.m [match_id]` | *Other Team/Player* | *Any*
 
 ### Channels
 
@@ -45,8 +45,8 @@ Role | Description
 
 Command | Description | Aliases | Channels
 --- | --- | --- | --- |
-**`.forcereport [score_team_A] [score_team_B]`** | Report Match - *Change/Force Match result if no team reported the match or there's a conflic* | `.freport [score_team_A] [score_team_B]` | *Channel corresponding to the ongoing match*
-**`.forceconfirm [match_id]`** | Force Confirm Match - *Confirm Match result if only 1 team reported the match* | `.fconfirm [match_id]` | *Channel corresponding to the ongoing match*
+**`.forcereport [score_team_A] [score_team_B]`** | Report Match - *Change/Force Match result if no team reported the match or there's a conflict* | `.freport [score_team_A] [score_team_B]` | *Channel corresponding to the ongoing match*
+**`.forceconfirm [match_id]`** | Force Confirm Match - *Confirm Match result if 1 team/player reported the match & the other didn't confirm* | `.fconfirm [match_id]` | *Channel corresponding to the ongoing match*
 **`.promoteRS1v1 [player]`** | Promote targetted Player to Rank S 1v1 | `.promoteRS1 [player]` `.pRS1 [player]` | *Any*
 **`.promoteRS2v2 [player]`** | Promote targetted Player to Rank S 2v2 | `.promoteRS2 [player]` `.pRS2 [player]` | *Any*
 **`.demoteRS1v1 [player]`** | Demote targetted Player from Rank S 1v1 | `.demoteRS1 [player]` `.dRS1 [player]` | *Any*
