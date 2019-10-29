@@ -7,7 +7,7 @@
 > All Commands are case **Insensitive**
 
 Command | Description | Aliases | Restrictions | Channels
---- | --- | --- | --- | :---:
+--- | --- | --- | --- | ---
 **`.queue1v1`** | Queue 1v1 | `.q1v1` `.q1` `.queue1` | *None* | `#standard-1v1`
 **`.queue2v2`** | Queue 2v2 | `.q2v2` `.q2` `.queue2` | *None* | `#standard-2v2`
 **`.leaderboard1v1`** | 1v1 Leaderboard | `.leaderboard1` `.lead1v1` `.lead1` | *None* | *Any*
@@ -43,7 +43,7 @@ Role | Description
 > All Commands are case **Insensitive**
 
 Command | Description | Aliases | Channels
---- | --- | --- | --- | :---:
+--- | --- | --- | --- |
 **`.forcereport [score_team_A] [score_team_B]`** | Report Match - *Change/Force Match result if no team reported the match or there's a conflic* | `.freport [score_team_A] [score_team_B]` | *Channel corresponding to the ongoing match*
 **`.forceconfirm [match_id]`** | Force Confirm Match - *Confirm Match result if only 1 team reported the match* | `.fconfirm [match_id]` | *Channel corresponding to the ongoing match*
 **`.promoteRS1v1 [player]`** | Promote targetted Player to Rank S 1v1 | `.promoteRS1 [player]` `.pRS1 [player]` | *Any*
