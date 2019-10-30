@@ -12,8 +12,8 @@ Command | Description | Aliases | Restrictions | Channels
 **`.queue2v2`** | Start 2v2 Queue | `.q2v2` `.q2` `.queue2` | *None* | `#standard-2v2`
 **`.leaderboard1v1`** | Fetch 1v1 Leaderboard | `.leaderboard1` `.lead1v1` `.lead1` | *None* | *Any*
 **`.leaderboard2v2`** | Fetch 2v2 Leaderboard | `.leaderboard2` `.lead2v2` `.lead2` | *None* | *Any*
-**`.queueRX1v1`** | Start Rank X 1v1 Queue | `.qRX1v1` `.qrs1` `.queueRX1` | *Invited players **Only*** | `#rank-x-1v1`
-**`.queueRX2v2`** | Start Rank X 2v2 Queue | `.qRX2v2` `.qrs2` `.queueRX2` | *Invited players **Only*** | `#rank-x-2v2`
+**`.queueRX1v1`** | Start Rank X 1v1 Queue | `.qRX1v1` `.qrx1` `.queueRX1` | *Invited players **Only*** | `#rank-x-1v1`
+**`.queueRX2v2`** | Start Rank X 2v2 Queue | `.qRX2v2` `.qrx2` `.queueRX2` | *Invited players **Only*** | `#rank-x-2v2`
 **`.leaderboardRX1v1`** | Fetch Rank X 1v1 Leaderboard | `.leaderboardRX1` `.leadRX1v1` `.leadRX1` | *None* | *Any*
 **`.leaderboardRX2v2`** | Fetch Rank X 2v2 Leaderboard | `.leaderboardRX2` `.leadRX2v2` `.leadRX2` | *None* | *Any*
 **`.statistics [player(mention)]`** | Specific Player Stats - *If no player is mentioned, returns stats of the player who wrote the command* | `.stats [player(mention)]` | *None* | *Any*
