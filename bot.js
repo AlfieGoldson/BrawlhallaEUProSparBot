@@ -36,10 +36,23 @@ discordClient.on('message', msg => {
 
     switch (command) {
         case 'register':
+            if (!isInChannel(msg, 'commands'))
+                return;
             system.register(msg.author.id, msg.author.username, msg.channel);
             break;
         case 'queue':
-            system.startQueue(msg.author.id, '1v1', msg.channel);
+            let gamemode = '';
+            if (isInChannel(msg, 'standard-1v1'))
+                gamemode = '1v1';
+            else if (isInChannel(msg, 'standard-2v2'))
+                gamemode = '2v2';
+            else if (isInChannel(msg, 'rank-x-1v1'))
+                gamemode = 'X1v1';
+            else if (isInChannel(msg, 'rank-x-2v2'))
+                gamemode = 'X2v2';
+            else
+                return;
+            system.startQueue(msg.author.id, gamemode, msg.channel);
             break;
         case 'leavequeue':
             break;
@@ -70,3 +83,11 @@ discordClient.on('message', msg => {
             break;
     }
 });
+
+const hasRole = (member, role) => {
+    return member.roles.has(roles[role]);
+}
+
+const isInChannel = (msg, channel) => {
+    return msg.channel.id === channels[channel];
+}
