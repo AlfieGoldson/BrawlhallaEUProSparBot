@@ -12,9 +12,9 @@ MatchSchema = new mongoose.Schema({
         default: 'Started'
     },
     gameMode: String,
-    scoreTeamA: Number,
-    scoreTeamA: Number,
-    winner: Number,
+    scoreTeamA: { type: Number, default: 0 },
+    scoreTeamA: { type: Number, default: 0 },
+    winner: { type: Number, default: -1 },
     roomNumber: { type: String, default: 'Undefined' }
 });
 

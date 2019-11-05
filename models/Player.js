@@ -13,6 +13,11 @@ PlayerSchema = new mongoose.Schema({
     },
     queues: [QueueSchema],
     match: mongoose.Schema.Types.ObjectId,
+    rating: Number,
+    peakRating: Number,
+    games: { type: Number, default: 0 },
+    wins: { type: Number, default: 0 },
+    losses: { type: Number, default: 0 }
 });
 
 module.exports = queueDB.model('Player', PlayerSchema);

@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const queueDB = require('../main').queueDB;
 
-const Player = require('./Player');
+const PlayerSchema = require('../Player').schema;
 
 TeamSchema = new mongoose.Schema({
-    players: [mongoose.Schema.Types.ObjectId],
-    ratings: [Number]
+    players: [PlayerSchema],
+    teamRating: Number
 });
 
 module.exports = TeamSchema;
