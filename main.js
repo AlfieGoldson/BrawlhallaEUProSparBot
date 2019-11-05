@@ -9,10 +9,10 @@ module.exports = {
                     // console.log('> Database Connection Sucessful!');
                     resolve({
                         registerPlayer: require('./functions/register'),
-                        startQueue: require('./functions/queueStart'),
-                        endQueue: require('./functions/queueEnd'),
-                        startMatch: require('./functions/matchStart'),
-                        endMatch: require('./functions/matchEnd')
+                        startQueue: require('./functions/startQueue'),
+                        endQueue: require('./functions/endQueue'),
+                        startMatch: require('./functions/startMatch'),
+                        endMatch: require('./functions/endMatch')
                     });
                 }).catch(reject);
         });
