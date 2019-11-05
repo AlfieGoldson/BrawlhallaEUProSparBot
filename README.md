@@ -13,16 +13,14 @@
 ### Player Commands
 > All Commands are case **Insensitive**
 >
-#### `!register`
+#### Register
 > Register yourself into the bot's database
 
 This command will grant you the role **`Ladder`**. With this role, you'll be able to queue the standard 1v1 & 2v2 queue.
 
 *Aliases: `!register`*
 
----
-
-#### `!queue`
+#### Queue
 
 > Enter a queue (depends on the channel where the command is written)
 
