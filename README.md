@@ -26,34 +26,34 @@ Lorem ipsum dolor sit amet.
 
 Lorem
 
-*Channel: `#ladder-info`
+*Channel: `#ladder-info`*
 ### Commands
 > Lorem
 
 Lorem
 
-*Channel: `#commands`
+*Channel: `#commands`*
 ### Standard 1v1
 > Lorem
 
 Lorem
 
-*Channel: `#standard-1v1`
+*Channel: `#standard-1v1`*
 ### Standard 2v2
 > Lorem
 
 Lorem
 
-*Channel: `#standard-2v2`
+*Channel: `#standard-2v2`*
 ### Rank X 1v1
 > Lorem
 
 Lorem
 
-*Channel: `#rank-x-1v1`
+*Channel: `#rank-x-1v1`*
 ### Rank X 2v2
 > Lorem
 
 Lorem
 
-*Channel: `#rank-x-2v2`
+*Channel: `#rank-x-2v2`*
