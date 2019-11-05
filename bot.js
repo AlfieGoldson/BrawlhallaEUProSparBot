@@ -29,16 +29,20 @@ discordClient.on('message', msg => {
     const args = msg.content.split(' ');
     let command = '';
     for (let i = 0; i < commands.length; i++) {
-        if (commands[i].aliases.includes(args[0])) {
+        if (commands[i].aliases.includes(args[0].toLowerCase())) {
             command = commands[i].command;
         }
     }
+
+    let author_name = msg.author.name;
+    let author_id = msg.author.id;
+    let channel = msg.channel;
 
     switch (command) {
         case 'register':
             if (!isInChannel(msg, 'commands'))
                 return;
-            system.register(msg.author.id, msg.author.username, msg.channel);
+            system.register(author_id, author_name, channel);
             break;
         case 'queue':
             let gamemode = '';
@@ -52,31 +56,52 @@ discordClient.on('message', msg => {
                 gamemode = 'X2v2';
             else
                 return;
-            system.startQueue(msg.author.id, gamemode, msg.channel);
+            system.startQueue(author_id, gamemode, channel);
             break;
         case 'leavequeue':
+            system.endQueue(author_id, channel);
             break;
         case 'report':
+            system.reportMatch(author_id, args[1], args[2], channel);
+            break;
+        case 'confirm':
+            system.confirmMatch(author_id, channel);
             break;
         case 'deny':
+            system.denyMatch(author_id, channel);
             break;
         case 'match':
+            system.getMatch(args[1], channel);
             break;
         case 'stats':
+            system.getMatch(args[1], channel);
             break;
         case 'leaderboard':
+        system.displayLeaderboard(args[1], channel);
             break;
         case 'forcereport':
+            if (hasRole(msg.member, 'Overseer'))
+                system.forceReport(args[1], args[2], args[3]);
             break;
         case 'forceconfirm':
+            if (hasRole(msg.member, 'Overseer'))
+                system.forceConfirm(args[1]);
             break;
         case 'promoteRX1v1':
+            if (hasRole(msg.member, 'Overseer'))
+                system.promoteRX1v1(msg.mentions.members, channel);
             break;
         case 'promoteRX2v2':
+            if (hasRole(msg.member, 'Overseer'))
+                system.promoteRX1v1(msg.mentions.members, channel);
             break;
         case 'demoteRX1v1':
+            if (hasRole(msg.member, 'Overseer'))
+                system.promoteRX1v1(msg.mentions.members, channel);
             break;
         case 'demoteRX2v2':
+            if (hasRole(msg.member, 'Overseer'))
+                system.promoteRX1v1(msg.mentions.members, channel);
             break;
         default:
             console.log('> Message / Unknown Command');
