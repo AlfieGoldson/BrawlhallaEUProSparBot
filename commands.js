@@ -9,7 +9,7 @@ module.exports = [
     // Queues
     {
         command: 'queue',
-        aliases: ['!queue', '!q', '!q', '!queue']
+        aliases: ['!queue', '!q']
     },
     {
         command: 'leavequeue',
@@ -41,7 +41,7 @@ module.exports = [
     },
     {
         command: 'leaderboard',
-        aliases: ['!leaderboard', '!leaderboard', '!lead', '!lead']
+        aliases: ['!leaderboard', '!lead']
     },
 
     // --- ADMIN COMMANDS ---
