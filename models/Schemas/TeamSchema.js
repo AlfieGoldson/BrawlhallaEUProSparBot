@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const queueDB = require('../main').queueDB;
 
 const PlayerSchema = require('../Player').schema;
 

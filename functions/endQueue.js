@@ -14,16 +14,16 @@ const endQueue = (discordID) => {
             .then(player => {
                 if (!player)
                     resolve('Not Registered!');
-                else if (player.status !== 'InQueue') {
+                else if (!player.state.includes('Queue')) {
                     resolve('Not In Queue!');
                 }
                 else {
-                    player.status = 'Idle';
-                    player.queues[0].status = 'Canceled';
+                    player.state = 'Idle';
+                    player.queues[player.queues.length - 1].state = 'Canceled';
 
                     player.save()
-                    .then(_ => resolve('Queue Stopped!'))
-                    .catch(console.error);
+                        .then(_ => resolve('Queue Stopped!'))
+                        .catch(console.error);
                 }
             })
             .catch(console.error);

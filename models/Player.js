@@ -13,8 +13,8 @@ PlayerSchema = new mongoose.Schema({
     },
     queues: [QueueSchema],
     match: mongoose.Schema.Types.ObjectId,
-    rating: Number,
-    peakRating: Number,
+    rating: { type: Number, default: 1000 },
+    peakRating: { type: Number, default: 1000 },
     games: { type: Number, default: 0 },
     wins: { type: Number, default: 0 },
     losses: { type: Number, default: 0 }

@@ -6,11 +6,12 @@ module.exports = (discordID, gamemode, channel) => {
         .then(player => {
             if (!player)
                 channel.send('Not Registered!');
-            else if (['In1v1Queue', 'In2v2Queue', 'InX1v1Queue', 'InX2v2Queue'].includes(player.status))
+            else if (['In1v1Queue', 'In2v2Queue', 'InX1v1Queue', 'InX2v2Queue'].includes(player.state))
                 channel.send('Already In Queue!');
-            else if (['In1v1Match', 'In2v2Match', 'InX1v1Match', 'InX2v2Match'].includes(player.status))
+            else if (['In1v1Match', 'In2v2Match', 'InX1v1Match', 'InX2v2Match'].includes(player.state))
                 channel.send('Still In A Match!');
-            else if (player.status === 'Idle') {
+            else if (player.state === 'Idle') {
+                console.log('Idle->Queue')
                 player.state = `In${gamemode}Queue`;
                 player.queues.push({
                     gamemode,

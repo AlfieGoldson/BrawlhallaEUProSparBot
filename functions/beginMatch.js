@@ -2,19 +2,24 @@ const shuffle = require('shuffle-array');
 const Match = require('../models/Match');
 
 module.exports = (gamemode, players, channel) => {
-    duos = gamemode.includes('2v2');
+    console.log('Begin Match');
+
     shuffle(players);
 
     let teamSize = players.length / 2;
-    let team1, team2;
 
-    team1.players = players.filter((_, i) => i < teamSize);
-    team1.teamRating = team1.players.reduce((a, b) => a + b, 0) / team1.players.length;
-    team1.players = team1.players.map(x => x.discordID);
+    let playersTeam1 = players.filter((_, i) => i < teamSize);
+    let team1 = {
+        players: playersTeam1,
+        teamRating: playersTeam1.reduce((a, b) => a + b.rating, 0) / teamSize
+    };
 
-    team2.players = players.filter((_, i) => i >= teamSize);
-    team2.teamRating = team2.players.reduce((a, b) => a + b, 0) / team1.players.length;
-    team2.players = team2.players.map(x => x.discordID);
+    let playersTeam2 = players.filter((_, i) => i >= teamSize);
+    let team2 = {
+        players: playersTeam2,
+        teamRating: playersTeam2.reduce((a, b) => a + b.rating, 0) / teamSize
+
+    };
 
     // Higher Team Rating is considered higher seed (Team A)
     let is1A = team1.teamRating > team2.teamRating;
@@ -48,12 +53,12 @@ module.exports = (gamemode, players, channel) => {
                         fields: [
                             {
                                 name: `Team A (${match.teamA.teamRating} Elo)`,
-                                value: match.teamA.players.map(x => `${x.name} (${x.rating}/${x.peakRating} Peak)\n`),
+                                value: match.teamA.players.map(x => `${x.name} (${x.rating}/${x.peakRating} Peak)\n`).join(),
                                 inline: true
                             },
                             {
                                 name: `Team B (${match.teamB.teamRating} Elo)`,
-                                value: match.teamB.players.map(x => `${x.name} (${x.rating}/${x.peakRating} Peak)\n`),
+                                value: match.teamB.players.map(x => `${x.name} (${x.rating}/${x.peakRating} Peak)\n`).join(),
                                 inline: true
                             }
                         ],

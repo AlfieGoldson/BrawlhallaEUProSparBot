@@ -3,7 +3,7 @@ module.exports = [
     // Registration
     {
         command: 'register',
-        aliases: ['!register']
+        aliases: ['!register', '!reg']
     },
 
     // Queues

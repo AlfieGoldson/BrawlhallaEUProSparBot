@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const queueDB = require('../main').queueDB;
-const { GameMode, QueueState } = require('./enums');
+const { GameMode, QueueState } = require('../enums');
 
 QueueSchema = new mongoose.Schema({
     gamemode: {
