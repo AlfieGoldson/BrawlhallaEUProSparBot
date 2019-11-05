@@ -1,9 +1,11 @@
 const dotenv = require('dotenv');
 const Discord = require('discord.js');
 
+const commands = require('./commands');
+
 dotenv.config();
 
-const database = process.env.DB_URL;
+const database = process.env.PRO_SPAR_DB_URL;
 let system;
 
 require('./main').connect(database)
@@ -22,15 +24,45 @@ discordClient.on('ready', () => {
 
 discordClient.on('message', msg => {
     const args = msg.split(' ');
-    switch (args[0]) {
-        case '!register':
-            system.registerPlayer(msg.author.id, msg.author.username, msg.channel);
+    let command = '';
+
+    for (let i = 0; i < commands.length; i++) {
+        if (commands[i].aliases.includes(args[0])) {
+            command = commands[i].command;
+        }
+    }
+
+    if (command !== '')
+        console.log(command);
+
+    switch (command) {
+        case 'register':
             break;
-        case '!q1':
-            system.startQueue(msg.author.id, '1v1', msg.channel);
+        case 'queue':
             break;
-        case '!q2':
-            system.startQueue(msg.author.id, '2v2', msg.channel);
+        case 'leavequeue':
+            break;
+        case 'report':
+            break;
+        case 'deny':
+            break;
+        case 'match':
+            break;
+        case 'stats':
+            break;
+        case 'leaderboard':
+            break;
+        case 'forcereport':
+            break;
+        case 'forceconfirm':
+            break;
+        case 'promoteRX1v1':
+            break;
+        case 'promoteRX2v2':
+            break;
+        case 'demoteRX1v1':
+            break;
+        case 'demoteRX2v2':
             break;
         default:
             break;
