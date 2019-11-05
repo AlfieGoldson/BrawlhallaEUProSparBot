@@ -2,6 +2,8 @@ const dotenv = require('dotenv');
 const Discord = require('discord.js');
 
 const commands = require('./commands');
+const channels = require('./channels');
+const roles = require('./roles');
 
 dotenv.config();
 
@@ -34,10 +36,10 @@ discordClient.on('message', msg => {
 
     switch (command) {
         case 'register':
-            require('./functions/register')(msg.author.id, msg.author.username, msg.channel);
+            system.register(msg.author.id, msg.author.username, msg.channel);
             break;
         case 'queue':
-        require('./functions/queu')
+            system.startQueue(msg.author.id, '1v1', msg.channel);
             break;
         case 'leavequeue':
             break;
