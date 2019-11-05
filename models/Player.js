@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const queueDB = require('../main').queueDB;
 const { PlayerState } = require('./enums');
+const QueueSchema = require('./Schemas/QueueSchema');
 
 PlayerSchema = new mongoose.Schema({
     name: String,
@@ -10,7 +11,7 @@ PlayerSchema = new mongoose.Schema({
         enum: PlayerState,
         default: 'Idle'
     },
-    queue: mongoose.Schema.Types.ObjectId,
+    queues: [QueueSchema],
     match: mongoose.Schema.Types.ObjectId,
 });
 

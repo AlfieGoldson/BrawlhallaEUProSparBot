@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const queueDB = require('../main').queueDB;
 const { MatchState } = require('./enums');
-const Team = require('./Team');
+const TeamSchema = require('./Schemas/TeamSchema');
 
 MatchSchema = new mongoose.Schema({
-    teamA: Team.schema,
-    teamB: Team.schema,
+    teamA: TeamSchema,
+    teamB: TeamSchema,
     state: {
         type: String,
         enum: MatchState,

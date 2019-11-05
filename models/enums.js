@@ -7,8 +7,14 @@ module.exports = {
     ],
     PlayerState: [
         'Idle',
-        'InQueue',
-        'InMatch'
+        'In1v1Queue',
+        'In2v2Queue',
+        'InX1v1Queue',
+        'InX2v2Queue',
+        'In1v1Match',
+        'In2v2Match',
+        'InX1v1Match',
+        'InX2v2Match'
     ],
     QueueState: [
         'Active',

@@ -1,5 +1,5 @@
 const Player = require('../models/Player');
-const Queue = require('../models/Queue');
+const Queue = require('../models/Schemas/QueueSchema');
 
 module.exports = (discordID, channel) => {
     endQueue(discordID)

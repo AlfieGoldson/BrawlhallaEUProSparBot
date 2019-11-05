@@ -1,5 +1,7 @@
 const Player = require('../models/Player');
-const Queue = require('../models/Queue');
+const Queue = require('../models/Schemas/QueueSchema');
+
+const startMatch = require('./startMatch');
 
 module.exports = (discordID, gamemode, channel) => {
     beginQueue(discordID, gamemode)
@@ -18,24 +20,9 @@ const beginQueue = (discordID, gamemode) => {
                     resolve('Already In Queue!');
                 }
                 else if (player.status === 'InMatch') {
-                    resolve('Already In A Match!')
+                    resolve('Still In A Match!')
                 }
                 else if (player.status === 'Idle') {
-                    Queue.find({ gamemode })
-                    const newQueue = new Queue({
-                        player: player,
-                        gamemode
-                    })
-                        .save()
-                        .then(queue => {
-                            player.status = 'InQueue';
-                            player.queues.push(queue);
-                            player
-                                .save()
-                                .then(_ => resolve('Queue Started!'))
-                                .catch(console.error);
-                        })
-                        .catch(console.error)
                 }
             })
             .catch(console.error);
