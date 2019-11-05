@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 const queueDB = require('../main').queueDB;
 const { MatchState } = require('./enums');
 const TeamSchema = require('./Schemas/TeamSchema');
+const autoIncrement = require('mongoose-auto-increment');
 
 MatchSchema = new mongoose.Schema({
+    matchID: { type: Number, required: true },
     teamA: TeamSchema,
     teamB: TeamSchema,
     state: {
@@ -18,4 +20,5 @@ MatchSchema = new mongoose.Schema({
     roomNumber: { type: String, default: 'Undefined' }
 });
 
+MatchSchema.plugin(autoIncrement.plugin, { model: 'Match', field: 'matchID' })
 module.exports = queueDB.model('Match', MatchSchema);
