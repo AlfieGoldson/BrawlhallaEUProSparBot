@@ -40,9 +40,8 @@ discordClient.on('message', msg => {
 
     switch (command) {
         case 'register':
-            if (!isInChannel(msg, 'commands'))
-                return;
-            system.register(author_id, author_name, channel);
+            if (isInChannel(msg, 'commands'))
+                system.register(author_id, author_name, channel);
             break;
         case 'queue':
             let gamemode = '';
@@ -56,7 +55,7 @@ discordClient.on('message', msg => {
                 gamemode = 'X2v2';
             else
                 return;
-            system.startQueue(author_id, gamemode, channel);
+            system.beginQueue(author_id, gamemode, channel);
             break;
         case 'leavequeue':
             system.endQueue(author_id, channel);
@@ -74,10 +73,10 @@ discordClient.on('message', msg => {
             system.getMatch(args[1], channel);
             break;
         case 'stats':
-            system.getMatch(args[1], channel);
+            system.displayStats(msg.mentions.members[0], channel);
             break;
         case 'leaderboard':
-        system.displayLeaderboard(args[1], channel);
+            system.displayLeaderboard(args[1], args[2], channel);
             break;
         case 'forcereport':
             if (hasRole(msg.member, 'Overseer'))

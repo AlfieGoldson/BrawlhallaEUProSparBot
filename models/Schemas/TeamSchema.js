@@ -8,4 +8,4 @@ TeamSchema = new mongoose.Schema({
     ratings: [Number]
 });
 
-module.exports = queueDB.model('Team', TeamSchema);
+module.exports = TeamSchema;

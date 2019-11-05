@@ -14,7 +14,8 @@ MatchSchema = new mongoose.Schema({
     gameMode: String,
     scoreTeamA: Number,
     scoreTeamA: Number,
-    winner: Number
+    winner: Number,
+    roomNumber: { type: String, default: 'Undefined' }
 });
 
 module.exports = queueDB.model('Match', MatchSchema);

@@ -3,7 +3,6 @@ const queueDB = require('../main').queueDB;
 const { GameMode, QueueState } = require('./enums');
 
 QueueSchema = new mongoose.Schema({
-    player: mongoose.Schema.Types.ObjectId,
     gamemode: {
         type: String,
         enum: GameMode,
@@ -17,4 +16,4 @@ QueueSchema = new mongoose.Schema({
     match: mongoose.Schema.Types.ObjectId,
 });
 
-module.exports = queueDB.model('Queue', QueueSchema);
+module.exports = QueueSchema;
