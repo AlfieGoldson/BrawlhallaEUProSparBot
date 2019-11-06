@@ -1,6 +1,8 @@
 const shuffle = require('shuffle-array');
 const Match = require('../models/Match');
 
+const getPlayerEmbed = require('./util/getPlayerEmbed');
+
 module.exports = (gamemode, players, channel) => {
     console.log('Begin Match');
 
@@ -46,28 +48,7 @@ module.exports = (gamemode, players, channel) => {
             }
             Promise.all(playerPromises)
                 .then(_ => {
-                    const matchEmbed = {
-                        color: 0x0099ff,
-                        title: 'Match',
-                        description: 'Team A is better seed, and creates the room. type `!room [RoomNumber]` when the room is created.',
-                        fields: [
-                            {
-                                name: `Team A (${match.teamA.teamRating} Elo)`,
-                                value: match.teamA.players.map(x => `${x.name} (${x.rating}/${x.peakRating} Peak)\n`).join(),
-                                inline: true
-                            },
-                            {
-                                name: `Team B (${match.teamB.teamRating} Elo)`,
-                                value: match.teamB.players.map(x => `${x.name} (${x.rating}/${x.peakRating} Peak)\n`).join(),
-                                inline: true
-                            }
-                        ],
-                        timestamp: new Date(),
-                        footer: {
-                            text: 'EU Pro Spar / Rank X Bot'
-                        },
-                    };
-                    channel.send({ embed: matchEmbed });
+                    channel.send({ embed: getPlayerEmbed(match) });
                 })
                 .catch(console.error);
         })

@@ -8,6 +8,7 @@ module.exports = (discordID, confirm, channel) => {
             if (match.state === 'Confirmed' || match.state === 'Canceled')
                 channel.send("Match score has already been confirmed. If there's an issue, tag an overseer.");
             else {
+                match.state = 
                 match
                     .save()
                     .then(_ => {

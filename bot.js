@@ -68,7 +68,7 @@ discordClient.on('message', msg => {
             system.confirmMatch(author_id, channel);
             break;
         case 'deny':
-            system.denyMatch(author_id, channel);
+            system.confirmMatch(author_id, channel);
             break;
         case 'match':
             system.getMatch(args[1], channel);
