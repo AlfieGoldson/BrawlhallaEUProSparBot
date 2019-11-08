@@ -23,7 +23,7 @@ module.exports = {
     ],
     MatchState: [
         'Started',
-        'Cancelled',
+        'Canceled',
         'Reported',
         'Confirmed'
     ]

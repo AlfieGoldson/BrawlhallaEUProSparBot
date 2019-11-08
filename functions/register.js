@@ -14,7 +14,10 @@ const register = (discordID, name) => {
                 if (player)
                     resolve('Already Registered!');
                 else
-                    new Player({ discordID, name })
+                    new Player({
+                        discordID,
+                        name
+                    })
                         .save()
                         .then(_ => {
                             resolve('Registration Success!');

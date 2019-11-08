@@ -34,7 +34,7 @@ discordClient.on('message', msg => {
         }
     }
 
-    let author_name = msg.author.name;
+    let author_name = msg.author.username;
     let author_id = msg.author.id;
     let channel = msg.channel;
 
@@ -55,7 +55,8 @@ discordClient.on('message', msg => {
                 gamemode = 'X2v2';
             else
                 return;
-            system.beginQueue(author_id, gamemode, channel);
+            if (gamemode !== '')
+                system.beginQueue(author_id, gamemode, channel);
             break;
         case 'leavequeue':
             system.endQueue(author_id, channel);
@@ -67,7 +68,7 @@ discordClient.on('message', msg => {
             system.confirmMatch(author_id, channel);
             break;
         case 'deny':
-            system.denyMatch(author_id, channel);
+            system.confirmMatch(author_id, channel);
             break;
         case 'match':
             system.getMatch(args[1], channel);
@@ -103,7 +104,7 @@ discordClient.on('message', msg => {
                 system.promoteRX1v1(msg.mentions.members, channel);
             break;
         default:
-            console.log('> Message / Unknown Command');
+            // console.log('> Message / Unknown Command');
             break;
     }
 });
