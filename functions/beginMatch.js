@@ -40,6 +40,7 @@ module.exports = (gamemode, players, channel) => {
                 playerPromises.push(new Promise((resolve, reject) => {
                     players[i].match = match._id;
                     players[i].state = `In${gamemode}Match`;
+                    players[i].queues[players[i].queues.length - 1].state = 'Successful';
                     players[i]
                         .save()
                         .then(resolve())

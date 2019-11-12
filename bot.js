@@ -62,13 +62,25 @@ discordClient.on('message', msg => {
             system.endQueue(author_id, channel);
             break;
         case 'report':
-            system.reportMatch(author_id, args[1], args[2], channel);
+            system.getPlayerCurrentMatch(author_id)
+                .then(match => {
+                    system.reportMatch(match, args[1], args[2], false, channel);
+                })
+                .catch(console.error);
             break;
         case 'confirm':
-            system.confirmMatch(author_id, channel);
+            system.getPlayerCurrentMatch(author_id)
+                .then(match => {
+                    system.confirmMatch(match, true, false, channel);
+                })
+                .catch(console.error);
             break;
         case 'deny':
-            system.confirmMatch(author_id, channel);
+            system.getPlayerCurrentMatch(author_id)
+                .then(match => {
+                    system.confirmMatch(match, false, false, channel);
+                })
+                .catch(console.error);
             break;
         case 'match':
             system.getMatch(args[1], channel);
@@ -81,7 +93,8 @@ discordClient.on('message', msg => {
             break;
         case 'forcereport':
             if (hasRole(msg.member, 'Overseer'))
-                system.forceReport(args[1], args[2], args[3]);
+                //TODO: Get Match
+                system.reportMatch(author_id, args[1], args[2], true, channel);
             break;
         case 'forceconfirm':
             if (hasRole(msg.member, 'Overseer'))

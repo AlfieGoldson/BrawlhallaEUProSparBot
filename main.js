@@ -14,6 +14,7 @@ module.exports = {
                         endQueue: require('./functions/endQueue'),
                         reportMatch: require('./functions/reportMatch'),
                         confirmMatch: require('./functions/confirmMatch'),
+                        getPlayerCurrentMatch: require('./functions/util/getPlayerCurrentMatch')
                         // displayStats: require('./functions/displayStats'),
                         // displayLeaderboard: require('./functions/displayLeaderboard'),
                     });

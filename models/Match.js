@@ -15,7 +15,7 @@ MatchSchema = new mongoose.Schema({
     },
     gameMode: String,
     scoreTeamA: { type: Number, default: 0 },
-    scoreTeamA: { type: Number, default: 0 },
+    scoreTeamB: { type: Number, default: 0 },
     winner: { type: Number, default: -1 },
     roomNumber: { type: String, default: 'Undefined' }
 });

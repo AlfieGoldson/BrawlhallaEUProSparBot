@@ -1,40 +1,45 @@
-const getPlayerCurrentMatch = require('./util/getPlayerCurrentMatch');
 const getPlayerEmbed = require('./util/getPlayerEmbed');
 
-module.exports = (discordID, scoreTeamA, scoreTeamB, force, channel) => {
-    getPlayerCurrentMatch(discordID)
-        .then(match => {
-            if (match.state !== 'Started' && !force)
-                channel.send("Couldn't update the room number, the match has already ended");
-            else {
-                try {
-                    scoreTeamA = parseInt(scoreTeamA);
-                    scoreTeamB = parseInt(scoreTeamB);
-                }
-                catch {
-                    channel.send('Bad score format.');
-                    return;
-                }
+module.exports = (match, scoreTeamA, scoreTeamB, force, channel) => {
+    console.log(match);
+    if (!match) {
+        channel.send("Not in a match!");
+    }
+    else if (match.state === 'Reported' && !force) {
+        channel.send("Match result not confirmed!");
+    }
+    else if (match.state !== 'Started' && !force)
+        channel.send("Not in a match!");
+    else {
 
-                let winner = -1;
-                if (scoreTeamA < 0 && scoreTeamB < 0)
-                    winner = -1;
-                else if (scoreTeamB < scoreTeamA)
-                    winner = 0;
-                else if (scoreTeamA < scoreTeamB)
-                    winner = 1;
-                else if (scoreTeamA === scoreTeamB)
-                    winner = 2;
+        if (isNaN(scoreTeamA) || isNaN(scoreTeamB)) {
+            channel.send('Bad score format.');
+        }
+        else {
 
-                match.scoreTeamA = scoreTeamA;
-                match.scoreTeamB = scoreTeamB;
-                match.winner = winner;
+            scoreTeamA = parseInt(scoreTeamA);
+            scoreTeamB = parseInt(scoreTeamB);
 
-                match
-                    .save()
-                    .then(_ => {
-                        channel.send({ embed: getPlayerEmbed(match, showScore) });
-                    })
-            }
-        })
+            let winner = -1;
+            if (scoreTeamA < 0 && scoreTeamB < 0)
+                winner = -1;
+            else if (scoreTeamB < scoreTeamA)
+                winner = 0;
+            else if (scoreTeamA < scoreTeamB)
+                winner = 1;
+            else if (scoreTeamA === scoreTeamB)
+                winner = 2;
+
+            match.scoreTeamA = scoreTeamA;
+            match.scoreTeamB = scoreTeamB;
+            match.winner = winner;
+            match.state = "Reported";
+
+            match
+                .save()
+                .then(_ => {
+                    channel.send({ embed: getPlayerEmbed(match, true) });
+                })
+        }
+    }
 }
