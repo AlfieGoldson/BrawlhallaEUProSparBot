@@ -33,7 +33,6 @@ module.exports = (gamemode, players, channel) => {
     let team2 = {
         players: playersTeam2,
         teamRating: playersTeam2.reduce((a, b) => a + b.ratings[gamemode].ratings[b.ratings[gamemode].ratings.length - 1], 0) / teamSize
-
     };
 
     // Higher Team Rating is considered higher seed (Team A)

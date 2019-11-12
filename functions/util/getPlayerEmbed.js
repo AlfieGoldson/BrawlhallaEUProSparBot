@@ -1,4 +1,5 @@
 module.exports = (match, showScore) => {
+    //TODO: CHANGE ELO SYSTEM
     const matchEmbed = {
         color: 0x0099ff,
         title: 'Match',
