@@ -4,15 +4,14 @@ module.exports = (match, showScore) => {
         color: 0x0099ff,
         title: 'Match',
         description: 'Team A is better seed, and creates the room. type `!room [RoomNumber]` when the room is created.',
-        fields: [
-            {
+        fields: [{
                 name: `Team A (${match.teamA.teamRating} Elo)`,
-                value: match.teamA.players.map(x => `${x.name} (${x.rating}/${x.peakRating} Peak)\n`).join(),
+                value: match.teamA.players.map(x => `${x.name} (${x.ratings[match.gamemode].ratings[x.ratings[match.gamemode].rankings - 1]}/${Math.max(...x.rating[match.gamemode].ratings)} Peak)\n`).join(),
                 inline: true
             },
             {
                 name: `Team B (${match.teamB.teamRating} Elo)`,
-                value: match.teamB.players.map(x => `${x.name} (${x.rating}/${x.peakRating} Peak)\n`).join(),
+                value: match.teamA.players.map(x => `${x.name} (${x.ratings[match.gamemode].ratings[x.ratings[match.gamemode].rankings - 1]}/${Math.max(...x.rating[match.gamemode].ratings)} Peak)\n`).join(),
                 inline: true
             }
         ],
